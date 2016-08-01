@@ -2,19 +2,14 @@ kind: ReplicationController
 apiVersion: v1
 metadata:
   name: etcd-discovery
-  creationTimestamp: 
+  creationTimestamp: null
 spec:
-  strategy:
-    type: Recreate
-    resources: {}
-  triggers:
-  - type: ConfigChange
   replicas: 1
   selector:
     name: etcd-discovery
   template:
     metadata:
-      creationTimestamp: 
+      creationTimestamp: null
       labels:
         name: etcd-discovery
     spec:
@@ -29,11 +24,11 @@ spec:
         resources: {}
         terminationMessagePath: "/dev/termination-log"
         imagePullPolicy: IfNotPresent
-        capabilities: {}
         securityContext:
           capabilities: {}
           privileged: false
       restartPolicy: Always
       dnsPolicy: ClusterFirst
       serviceAccount: ''
-status: {}
+status:
+  replicas: 1
